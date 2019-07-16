@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+button:focus {
+    outline: none !important;
+}
+[type=button], [type=reset], [type=submit], button {
+    -webkit-appearance: button;
+    outline: none !important;
+}
+.cursor {
+    cursor: pointer;
+}
+.btn-secondary {
+    background: -webkit-linear-gradient(left, #9b1c81, #77449f) !important;
+    border-color: -webkit-linear-gradient(left, #9b1c81, #77449f) !important;
+}
+.btn-secondary.focus, .btn-secondary:focus {
+    box-shadow: none !important;
+}

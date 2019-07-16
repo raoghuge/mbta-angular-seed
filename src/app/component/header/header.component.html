@@ -1,0 +1,37 @@
+<div class="top-bar">
+  <div class="container">
+    <div class="row d-flex align-items-center ">
+      <div class="col-md-6 d-md-block d-none">
+        <img alt="MBTA E-Ticket Logo" src="assets/images/MBTA E-Ticket.png" width="80px">
+      </div>
+      <div class="col-md-6">
+        <div class="d-flex justify-content-md-end justify-content-between">
+          <ul class="list-inline contact-info d-block d-md-none">
+            <li class="list-inline-item"><a href="#"><i class="fa fa-phone"></i></a></li>
+            <li class="list-inline-item"><a href="#"><i class="fa fa-envelope"></i></a></li>
+          </ul>
+          <div class="login" *ngIf="isAuthenticated && user">
+            <a [routerLink]="['/booking']" routerLinkActive="router-link-active"  class="login-btn cursor mr-5">
+              <span class="d-none d-md-inline-block">Booking</span>
+            </a>
+            <a [routerLink]="['/booking-history']" routerLinkActive="router-link-active"  class="login-btn cursor mr-5">
+              <span class="d-none d-md-inline-block">History</span>
+            </a>
+
+            <a (click)="logout()" class="login-btn cursor">
+              <i class="fa fa-sign-out"></i>
+              <span class="d-none d-md-inline-block">{{user.firstName}}</span>
+            </a>
+
+          </div>
+          <div class="login" *ngIf="!isAuthenticated">
+            <a [routerLink]="['/auth']" routerLinkActive="router-link-active" class="login-btn cursor">
+              <i class="fa fa-user-circle"></i>
+              <span class="d-none d-md-inline-block">Sign In</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

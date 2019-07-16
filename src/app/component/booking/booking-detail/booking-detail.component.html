@@ -1,0 +1,54 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Firstname</th>
+      <th>Email</th>
+      <th>Contact No</th>
+      <th>Gender</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <div class="form-group">
+          <input type="text" name="firstName" placeholder="First name" [(ngModel)]="user.firstName" class="form-control"
+            id="firstName">
+        </div>
+      </td>
+      <td>
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Email" [(ngModel)]="user.email" class="form-control" id="email">
+        </div>
+      </td>
+      <td>
+        <div class="form-group">
+          <input type="number" name="contactNo" placeholder="Contact number" [(ngModel)]="user.contactNo"
+            class="form-control" id="contactNo">
+        </div>
+      </td>
+      <td>
+        <div class="form-group">
+          <div class="form-group">
+            <select name="gender" [(ngModel)]="user.gender" class="form-control" id="gender">
+              <option value="M" selected>Male</option>
+              <option value="F">Female</option>
+              <option value="O">Other</option>
+            </select>
+          </div>
+        </div>
+      </td>
+      <td>
+        <button type="submit" class="btn btn-secondary" (click)="addUser()">Add</button>
+      </td>
+    </tr>
+    <tr *ngFor="let u of users">
+      <td>{{u?.firstName}}</td>
+      <td>{{u?.email}}</td>
+      <td>{{u?.contactNo}}</td>
+      <td>{{u?.gender}}</td>
+      <td></td>
+    </tr>
+
+  </tbody>
+</table>

@@ -1,0 +1,26 @@
+<div class="container">
+  <form class="mt-4 mb-4">
+    <div class="form-row">
+      <div class="form-group col-md-5">
+        <label for="source">Source</label>
+        <select class="form-control" name="source" id="source" (change)="onChange($event.target.value)">
+          <option disabled>Select Source</option>
+          <option [value]="item?.route" *ngFor="let item of sourceStations">
+            {{item?.route}}
+          </option>
+        </select>
+      </div>
+      <div class="form-group col-md-5">
+        <label for="sel1">Destination</label>
+        <select class="form-control" id="sel1" (change)="destinationChanged($event.target.value)">
+          <option disabled>Select Destination</option>
+          <option [value]="item?.route" *ngFor="let item of destinationStations">
+            {{item?.route}}
+          </option>
+        </select>
+      </div>
+    </div>
+  </form>
+  <app-booking-detail [users]="booking.userDetails" (submited)="submited($event)"></app-booking-detail>
+  <button type="submit" class="btn btn-secondary float-right" (click)="save()">Submit</button>
+</div>
