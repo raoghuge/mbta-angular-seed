@@ -17,5 +17,14 @@ export class HeaderComponent {
     localStorage.clear();
     this.router.navigate(['/']);
   }
+  openNav() {
+    if (this.user) {
+    document.getElementById('mySidenav').style.width = '250px';
+    } else {
+    }
+  }
+  closeNav() {
+    document.getElementById('mySidenav').style.width = '0';
+  }
 
 }

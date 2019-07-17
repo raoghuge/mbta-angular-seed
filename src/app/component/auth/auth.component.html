@@ -1,27 +1,42 @@
 <div class="container register">
-  <div class="row">
+  <div class="row m-0">
     <div class="col-md-3 register-left">
-      <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
+        <img src="assets/images/train image.PNG" alt="">
+      <!-- <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" /> -->
       <h3>Welcome</h3>
       <p>You are 30 seconds away from MBTA E-Ticket booking</p>
     </div>
     <div class="col-md-9 register-right">
-      <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
-        <li class="nav-item">
-          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
-            aria-selected="true">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
-            aria-selected="false">Register</a>
-        </li>
-      </ul>
+      <div class="d-block d-sm-block d-md-none">
+        <ul class="nav mob-nav-tabs nav-justified" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+              aria-selected="true">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+              aria-selected="false">Register</a>
+          </li>
+        </ul>
+      </div>
+      <div class="d-none d-sm-none d-md-block">
+        <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+              aria-selected="true">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+              aria-selected="false">Register</a>
+          </li>
+        </ul>
+      </div>
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
           <h3 class="register-heading">Login</h3>
           <form action="" method="" class="" role="form" novalidate [formGroup]="loginform">
             <div class="row register-form">
-              <div class="col-md-6">
+              <div class="col-md-6 col-12">
                 <div class="form-group">
                   <input type="email" name="email" formControlName="email" class="form-control"
                     placeholder="Your Email *" value="" />
@@ -30,7 +45,7 @@
                   </span>
                 </div>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-6 col-12">
 
                 <div class="form-group">
                   <input type="password" name="password" formControlName="password" class="form-control"
@@ -49,9 +64,10 @@
           <form action="" method="" class="" role="form" novalidate [formGroup]="registrationform">
             <div class="row register-form">
 
-              <div class="col-md-6">
+              <div class="col-md-6 col-12">
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="First Name *" formControlName="firstName" value="" />
+                  <input type="text" class="form-control" placeholder="First Name *" formControlName="firstName"
+                    value="" />
                   <span class="error_sms" *ngIf="!registrationform.controls.firstName.valid && submited">
                     Please enter name.
                   </span>
@@ -66,11 +82,11 @@
 
 
               </div>
-              <div class="col-md-6">
+              <div class="col-md-6 col-12">
 
                 <div class="form-group">
-                  <input type="text" name="lname" class="form-control" placeholder="Last Name *" formControlName="lastName"
-                    value="" />
+                  <input type="text" name="lname" class="form-control" placeholder="Last Name *"
+                    formControlName="lastName" value="" />
                   <span class="error_sms" *ngIf="!registrationform.controls.lastName.valid && submited">
                     Please enter last name.
                   </span>

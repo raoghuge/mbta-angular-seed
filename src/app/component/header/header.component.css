@@ -1,6 +1,5 @@
-
 .top-bar {
-    /* background: #9b1c81; */
+    /* / background: #9b1c81; / */
     background: -webkit-linear-gradient(left, #9b1c81, #77449f);
     color: #fff;
     font-size: 0.9rem;
@@ -58,3 +57,47 @@ a:focus, a:hover {
     font-weight: 700;
     margin-right: 10px;
 }
+.icon{
+    font-size: 22px;
+    color: white;
+}
+/* / side menu / */
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #edc8ff;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #3d3838;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0px;
+    right: 15px;
+    font-size: 28px;
+    margin-left: 50px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+/* / end / */

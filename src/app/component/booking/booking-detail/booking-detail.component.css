@@ -1,0 +1,8 @@
+.table-striped {
+    min-width: auto;
+}
+@media (max-width: 600px) {
+    .table-striped {
+        min-width: 800px;
+    }
+}
