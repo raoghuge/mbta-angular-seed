@@ -9,16 +9,15 @@ import { Subscription } from 'rxjs';
 describe('BookingDetailComponent', () => {
   let component: BookingDetailComponent;
   let fixture: ComponentFixture<BookingDetailComponent>;
-  let subscription = Subscription;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ FormsModule ],
-      declarations: [ BookingDetailComponent ],
+      imports: [FormsModule],
+      declarations: [BookingDetailComponent],
       providers: [
         { provide: ToasterService, useValue: mockToasterService },
       ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -31,22 +30,19 @@ describe('BookingDetailComponent', () => {
     expect(component).toBeTruthy();
   });
 
-
   it('should emit user added', () => {
     const nativeElement = fixture.nativeElement;
-    component.user ={
+    component.user = {
       firstName: 'Rao',
       email: 'rao.ghuge@gmail.com',
       gender: 'M',
-      contactNo: 9819216906
-    }
+      contactNo: 8689988686
+    };
     const button = nativeElement.querySelector('button');
     button.dispatchEvent(new Event('click'));
     fixture.detectChanges();
-    component.submited.subscribe(user =>{
+    component.submited.subscribe(user => {
       expect(user.firstName).toBe('Rao');
-    })
+    });
   });
-
-
 });

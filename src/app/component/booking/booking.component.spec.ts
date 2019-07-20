@@ -57,5 +57,4 @@ describe('BookingComponent', () => {
     component.onChange(stations[1].route);
     expect(component.getDestination).toHaveBeenCalled();
   });
-  
 });

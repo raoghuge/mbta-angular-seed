@@ -4,7 +4,7 @@ import { Observable, of } from 'rxjs';
 class MockHttpService {
     public login(user) { }
     public register(user) { }
-    public get(url) { return of([]) }
+    public get(url) { return of([]); }
     public post(url, data) { }
 }
 

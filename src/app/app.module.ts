@@ -23,7 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, ReactiveFormsModule,
     BrowserAnimationsModule, // required
-    ToastNotificationsModule.forRoot(),
+    ToastNotificationsModule.forRoot({duration: 3000}),
   ],
   providers: [],
   bootstrap: [AppComponent]

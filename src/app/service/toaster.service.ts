@@ -38,7 +38,8 @@ export class ToasterService {
     this.toaster.open({
       text: msg,
       caption: ' ',
-      type: option,
+      type: option 
     });
   }
+  
 }
