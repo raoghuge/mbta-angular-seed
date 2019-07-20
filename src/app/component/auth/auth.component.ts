@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { HttpService } from 'src/app/service/http.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -15,21 +15,12 @@ export class AuthComponent {
   public loginform: FormGroup;
   public registrationform: FormGroup;
   public submited: any;
+  
   constructor(private service: HttpService,
     private router: Router,
     private fb: FormBuilder,
     private toaster: ToasterService) {
-    this.loginform = this.fb.group({
-      email: ['', Validators.compose([Validators.required, Validators.email])],
-      password: ['', [Validators.required]],
-    });
-
-    this.registrationform = this.fb.group({
-      email: ['', Validators.compose([Validators.required, Validators.email])],
-      password: ['', [Validators.required]],
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required]
-    });
+    this.initForm();
   }
 
   /**
@@ -48,13 +39,30 @@ export class AuthComponent {
             this.toaster.success('Login Successfully');
             this.router.navigate(['/booking']);
           } else {
-            this.toaster.error('Login Fail');
+            this.toaster.error('Login Failed');
           }
         }, err => {
-          this.toaster.error('Login Fail');
+          this.toaster.error('Login Failed');
         });
     }
   }
+
+  private initForm(){
+
+    this.loginform = this.fb.group({
+      email: ['', Validators.compose([Validators.required, Validators.email])],
+      password: ['', [Validators.required]],
+    });
+
+    this.registrationform = this.fb.group({
+      email: ['', Validators.compose([Validators.required, Validators.email])],
+      password: ['', [Validators.required]],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required]
+    });
+
+  }
+  
   public signup() {
     this.submited = true;
     if (this.registrationform.invalid) {
@@ -63,15 +71,14 @@ export class AuthComponent {
     } else {
       this.service.register(this.registrationform.value)
         .subscribe(res => {
-          console.log(res);
           if (res['code'] === 200 && res['data']) {
-            this.setSession(res['data']);
-            this.toaster.success('Registration Successfully');
+            this.toaster.success('Registration Successfully, Please login');
+            this.initForm();
           } else {
             this.toaster.error('Signup Fail');
           }
         }, err => {
-          this.toaster.error('Login Fail');
+          this.toaster.error('Login Failed');
         });
     }
   }

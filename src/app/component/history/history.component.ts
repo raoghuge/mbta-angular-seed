@@ -7,13 +7,14 @@ import { HttpService } from 'src/app/service/http.service';
   styleUrls: ['./history.component.css']
 })
 export class HistoryComponent implements OnInit {
-  private currentUser;
+  private currentUser: any;
   public history: any[];
   constructor(private service: HttpService) {
-    this.currentUser = JSON.parse(localStorage.getItem('user'));
+    
   }
 
   ngOnInit() {
+    this.currentUser = JSON.parse(localStorage.getItem('user')) || {};
     this.getHistory();
   }
 

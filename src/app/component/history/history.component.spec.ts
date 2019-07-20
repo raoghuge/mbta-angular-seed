@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HistoryComponent } from './history.component';
+import { HttpService } from 'src/app/service/http.service';
+import { mockHttpService } from 'src/app/service/mock-data/http.mock.service';
 
 describe('HistoryComponent', () => {
   let component: HistoryComponent;
@@ -8,7 +10,10 @@ describe('HistoryComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HistoryComponent ]
+      declarations: [ HistoryComponent ],
+      providers: [{
+        provide: HttpService, useValue: mockHttpService
+      }]
     })
     .compileComponents();
   }));

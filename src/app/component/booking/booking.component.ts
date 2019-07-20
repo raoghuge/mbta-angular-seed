@@ -19,7 +19,7 @@ export class BookingComponent implements OnInit {
   constructor(private service: HttpService, private toaster: ToasterService, private router: Router) { }
 
   ngOnInit() {
-    this.currentUser = JSON.parse(localStorage.getItem('user'));
+    this.currentUser = JSON.parse(localStorage.getItem('user')) || {};
     this.initBooking();
     this.getSource();
   }
@@ -44,6 +44,10 @@ export class BookingComponent implements OnInit {
     let newSource: Station = this.sourceStations.find(el => el.route === val);
     this.booking.source = new Station(newSource.route, newSource.line);
     let sourceLine: string = newSource.line.join(",");
+    this.getDestination(sourceLine);
+  }
+
+  public getDestination(sourceLine){
     this.service.get('station/on_same_line?line=' + sourceLine)
       .subscribe(res => {
         if (res['code'] === 200 && res['data']) {
